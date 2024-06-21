@@ -11,7 +11,7 @@ const TableOne: React.FC<TableProps> = ({ headers = [], data = [] }) => {
     <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
         {/* Dynamically set title */}
-        {headers.includes("Source") ? "Top Channels" : "Contacts"}
+        {headers.includes("Source") ? "Top Channels" : "Products"}
       </h4>
 
       <div className="flex flex-col">
@@ -35,7 +35,7 @@ const TableOne: React.FC<TableProps> = ({ headers = [], data = [] }) => {
             {headers.map((header, columnIndex) => (
               <div
                 key={columnIndex}
-                className={`flex items-center justify-start p-2.5 xl:p-5 ${
+                className={`flex items-center justify-start p-2.5 xl:p-5 cursor-pointer ${
                   columnIndex === 0 && header === "Source" ? "flex" : "hidden sm:flex"
                 }`}
               >
