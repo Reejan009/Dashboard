@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface TableProps {
@@ -7,6 +8,7 @@ interface TableProps {
 }
 
 const TableOne: React.FC<TableProps> = ({ headers = [], data = [] }) => {
+  const router = useRouter()
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
@@ -42,7 +44,7 @@ const TableOne: React.FC<TableProps> = ({ headers = [], data = [] }) => {
                 {columnIndex === 0 && header === "Source" ? (
                   // Check if it's the first column and header is "Source"
                   headers.includes("Name") ? (
-                    <p className="text-black dark:text-white">{item.name}</p>
+                    <p className="text-black dark:text-white" >{item.name}</p>
                   ) : (
                     <div className="flex-shrink-0">
                       <Image src={item.logo} alt="Brand" width={48} height={48} />
@@ -52,6 +54,7 @@ const TableOne: React.FC<TableProps> = ({ headers = [], data = [] }) => {
                   <p className="text-black dark:text-white">
                     {item[header.toLowerCase()]}
                   </p>
+                  // <button></button>
                 )}
               </div>
             ))}
